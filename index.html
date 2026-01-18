@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Krypto – NFT Marketplace</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    :root {
+      --bg-dark: #070b2a;
+      --primary: #7b7cff;
+      --secondary: #9fd3c7;
+      --text-main: #ffffff;
+      --text-muted: #b6b9ff;
+      --card-bg: rgba(255,255,255,0.06);
+      --radius: 18px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at right, #1a2b5f, var(--bg-dark));
+      color: var(--text-main);
+    }
+
+    /* NAV */
+    nav {
+      max-width: 1200px;
+      margin: auto;
+      padding: 32px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+      font-size: 14px;
+    }
+
+    section {
+      max-width: 1200px;
+      margin: auto;
+      padding: 80px 24px;
+    }
+
+    /* HERO */
+    .hero {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: 52px;
+      margin-bottom: 24px;
+    }
+
+    p {
+      color: var(--text-muted);
+      max-width: 420px;
+      margin-bottom: 32px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 16px;
+    }
+
+    .btn {
+      padding: 14px 28px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #000;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.3);
+      color: #fff;
+    }
+
+    .hero-visual {
+      height: 340px;
+      border-radius: var(--radius);
+      background-image: url('https://images.unsplash.com/photo-1639322537231-2f206e06af84');
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* LOGOS */
+    .logos {
+      display: flex;
+      justify-content: space-between;
+      opacity: 0.6;
+      padding: 32px 0;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* ANALYTICS */
+    .analytics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .mock-ui {
+      height: 260px;
+      border-radius: var(--radius);
+      background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71');
+      background-size: cover;
+      background-position: center;
+    }
+
+    h2 {
+      font-size: 36px;
+      margin-bottom: 16px;
+    }
+
+    /* APP */
+    .app {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .phone {
+      height: 340px;
+      border-radius: 28px;
+      background-image: url('https://images.unsplash.com/photo-1511707171634-5f897ff02aa9');
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* TESTIMONIALS */
+    .testimonials {
+      text-align: center;
+    }
+
+    .cards {
+      margin-top: 48px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 32px 24px;
+    }
+
+    .avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      margin: 0 auto 16px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .a1 { background-image:url('https://randomuser.me/api/portraits/women/44.jpg'); }
+    .a2 { background-image:url('https://randomuser.me/api/portraits/men/32.jpg'); }
+    .a3 { background-image:url('https://randomuser.me/api/portraits/women/65.jpg'); }
+
+    .name {
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .quote {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* CTA */
+    .cta {
+      background: linear-gradient(135deg, #5e6cff, #8bd7d0);
+      border-radius: var(--radius);
+      padding: 64px 24px;
+      text-align: center;
+    }
+
+    .cta .btn {
+      background: #000;
+      color: #fff;
+    }
+
+    /* FOOTER */
+    footer {
+      max-width: 1200px;
+      margin: auto;
+      padding: 64px 24px;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 2fr;
+      gap: 32px;
+      font-size: 14px;
+      opacity: 0.85;
+    }
+
+    footer ul {
+      list-style: none;
+    }
+
+    footer li {
+      margin-bottom: 8px;
+    }
+
+    .newsletter input {
+      width: 100%;
+      padding: 12px;
+      border-radius: 999px;
+      border: none;
+      margin-bottom: 12px;
+    }
+
+    .newsletter button {
+      width: 100%;
+      padding: 12px;
+      border-radius: 999px;
+      border: none;
+      background: var(--primary);
+      font-weight: 600;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .hero, .analytics, .app { grid-template-columns: 1fr; text-align:center; }
+      .hero-visual, .mock-ui, .phone { margin:auto; max-width:420px; }
+      .buttons { justify-content:center; }
+      footer { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      nav { flex-direction:column; gap:20px; }
+      nav ul { flex-wrap:wrap; justify-content:center; }
+      .cards { grid-template-columns:1fr; }
+      footer { grid-template-columns:1fr; text-align:center; }
+    }
+
+    @media (max-width: 480px) {
+      h1 { font-size:28px; }
+      h2 { font-size:22px; }
+      .buttons { flex-direction:column; }
+      .btn { width:100%; max-width:280px; }
+      .hero-visual, .mock-ui, .phone { height:220px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<nav>
+  <strong>KRYPTO</strong>
+  <ul>
+    <li>about</li>
+    <li>pricing</li>
+    <li>contact</li>
+    <li>buy nfts</li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div>
+    <h1>Discover<br>And Collect<br>Rare NFTs</h1>
+    <p>The most secure marketplace for buying and selling unique crypto assets.</p>
+    <div class="buttons">
+      <button class="btn btn-primary">BUY NFTS</button>
+      <button class="btn btn-outline">SELL NFTS</button>
+    </div>
+  </div>
+  <div class="hero-visual"></div>
+</section>
+
+<section class="logos">
+  <span>TechCrunch</span>
+  <span>Fast Company</span>
+  <span>MIT</span>
+  <span>Forbes</span>
+</section>
+
+<section class="analytics">
+  <div class="mock-ui"></div>
+  <div>
+    <h2>Built-In Analytics<br>To Track Your NFTs</h2>
+    <p>Use our built-in analytics dashboard to pull insights and monitor performance.</p>
+    <button class="btn btn-primary">VIEW OUR PRICING</button>
+  </div>
+</section>
+
+<section class="app">
+  <div>
+    <h2>Browse NFTs From<br>Your Smartphone</h2>
+    <p>The easiest way to keep track of your assets when you're on the go.</p>
+    <button class="btn btn-primary">DOWNLOAD ON IOS</button>
+  </div>
+  <div class="phone"></div>
+</section>
+
+<section class="testimonials">
+  <h2>Read What Others<br>Have To Say</h2>
+  <div class="cards">
+    <div class="card">
+      <div class="avatar a1"></div>
+      <div class="name">OLIVIA COLE</div>
+      <div class="quote">Amazing marketplace with beautiful UI and analytics.</div>
+    </div>
+    <div class="card">
+      <div class="avatar a2"></div>
+      <div class="name">OLIVIA COLE</div>
+      <div class="quote">Buying NFTs has never been this smooth.</div>
+    </div>
+    <div class="card">
+      <div class="avatar a3"></div>
+      <div class="name">OLIVIA COLE</div>
+      <div class="quote">A must-use platform for digital collectors.</div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <h2>Be A Part Of The<br>Next Big Thing</h2>
+  <button class="btn">GET STARTED</button>
+</section>
+
+<footer>
+  <div><strong>KRYPTO</strong></div>
+
+  <div>
+    <h4>krypto</h4>
+    <ul>
+      <li>Home</li>
+      <li>About</li>
+      <li>Buy NFTs</li>
+      <li>Sell NFTs</li>
+    </ul>
+  </div>
+
+  <div>
+    <h4>Market</h4>
+    <ul>
+      <li>Browse NFTs</li>
+      <li>Buy NFTs</li>
+      <li>Sell NFTs</li>
+    </ul>
+  </div>
+
+  <div class="newsletter">
+    <h4>Join our newsletter</h4>
+    <input type="email" placeholder="Email Address">
+    <button>SUBMIT</button>
+  </div>
+</footer>
+
+</body>
+</html>
